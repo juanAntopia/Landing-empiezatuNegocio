@@ -99,7 +99,6 @@
 
                     <h2 class="white">¡Recupera tu inversión a partir de 18 meses!</h2>
 
-
                     <div class="row centrar">
                         <a href="#"> <button class="btn-1" data-aos="fade-left" data-aos-duration="1800"> Conocer
                                 más</button></a>
