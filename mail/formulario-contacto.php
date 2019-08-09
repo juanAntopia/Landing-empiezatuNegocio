@@ -1,6 +1,185 @@
 <?php
 //perla.holguin@3e-digital.com
 
+if(isset($_POST)){
+		$name = htmlspecialchars($_POST['c_name']);
+		$email = htmlspecialchars($_POST['c_email']);
+		$phone = htmlspecialchars($_POST['c_phone']);
+		$state = htmlspecialchars($_POST['c_state']);
+		$city = htmlspecialchars($_POST['c_city']);
+		$budget = htmlspecialchars($_POST['c_budget']);
+		$radioValue = htmlspecialchars($_POST['radioValue']);
+		$camp1 = htmlspecialchars($_POST['c_camp1']);
+		$camp2 = htmlspecialchars($_POST['c_camp2']);
+		$camp3 = htmlspecialchars($_POST['c_camp3']);
+		$radioValue2 = htmlspecialchars($_POST['radioValue2']);
+		$message = htmlspecialchars($_POST['c_message']);
+
+	$error = "faltan_valores";
+
+	if ($name && $email && $phone && $state && $city && $budget
+		&& $radioValue && $camp1 && $camp2 && $camp3 && $radioValue2 && $message
+	) {
+		$error = "ok";
+		if (!is_int($name) || !is_numeric($name) && !empty($name) && strlen($name) > 2 && strlen($name) < 100) {
+			$validate_name = true;
+		} else {
+			$validate_name = false;
+			$error = "nombre";
+		}
+
+		if (filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) > 2 && strlen($email) < 150 && !empty($email)) {
+			$validate_email = true;
+		} else {
+			$validate_email = false;
+			$error = "email";
+		}
+
+		if($phone != "" && preg_match("/^[0-9]+$/", $phone)){
+			$validate_phone = true;
+		}else{
+			$validate_phone = false;
+			$error = "telefono";
+		}
+
+		if (!is_int($state) || !is_numeric($state) && !empty($state) && strlen($state) > 2 && strlen($state) < 100) {
+			$validate_state = true;
+		} else {
+			$validate_state = false;
+			$error = "empresa";
+		}
+
+		if (!is_int($giroEmpresarial) || !is_numeric($giroEmpresarial) && !empty($giroEmpresarial) && strlen($giroEmpresarial) > 2 && strlen($giroEmpresarial) < 100) {
+			$validate_giro = true;
+		} else {
+			$validate_giro = false;
+			$error = "giro";
+		}
+
+		if (!is_int($calle) || !is_numeric($calle) && !empty($calle) && strlen($calle) > 2 && strlen($calle) < 100) {
+			$validate_calle = true;
+		} else {
+			$validate_calle = false;
+			$error = "calle";
+		}
+
+		if($ext != "" && preg_match("/^[0-9]+$/", $ext)){
+			$validate_ext = true;
+		}else{
+			$validate_ext = false;
+			$error = "ext";
+		}
+
+		if($int != ""){
+			$validate_int = true;
+		}else{
+			$validate_int = false;
+			$error = "int";
+		}
+
+		if (!is_int($colonia) || !is_numeric($colonia) && !empty($colonia) && strlen($colonia) > 2 && strlen($colonia) < 100) {
+			$validate_colonia = true;
+		} else {
+			$validate_colonia = false;
+			$error = "colonia";
+		}
+
+		if (!is_int($municipio) || !is_numeric($municipio) && !empty($municipio) && strlen($municipio) > 2 && strlen($municipio) < 100) {
+			$validate_municipio= true;
+		} else {
+			$validate_municipio = false;
+			$error = "municipio";
+		}
+
+		if (strlen($mensaje) > 2 && strlen($mensaje) < 500 && !empty($mensaje)) {
+			$validate_message = true;
+		} else {
+			$validate_message = false;
+			$error = "mensaje";
+		}
+	}
+
+	else {
+		$error = "faltan_valores";
+		header("Location:../index.php?error=$error");
+	}
+
+	if ($error != "ok") {
+		header("Location:../index.php?error=" . $error);
+	}elseif($error == "ok"){
+
+		//asunto
+		$asunto="10% Control de plaga Residencial";
+
+		//destinatario
+		$destino="juan_27angel@hotmail.com";
+
+		//cabeceras para validar el formato HTML
+		$headers = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= "Content-type: text/html; charset=UTF-8\r\n";
+
+		//contenido del mensaje
+		$contenido='
+		<html>
+		<head></head>
+		<body>
+		<h3>'.$nombre.' ha solicitado el 20% en servicio de Residencial</h3>
+
+		<hr style="border:2px solid #A6060E;"/>
+		
+		
+		<p>'.$mensaje.' </p>
+		
+		<h3>Datos del cliente.</h3>
+		<ul>
+			<li><strong>Nombre: </strong> '.$nombre.'</li>
+			<li><strong>Apellido: </strong> '.$apellido.'</li>
+			<li><strong>E-mail: </strong> '.$email.'</li>
+			<li><strong>Teléfono: </strong> '.$telefono.'</li>
+			<li><strong>Empresa: </strong> '.$empresa.'</li>
+			<li><strong>Giro empresarial: </strong> '.$giroEmpresarial.'</li>
+			<li><strong>Calle: </strong> '.$calle.'</li>
+			<li><strong>No Exterior: </strong> '.$ext.'</li>
+			<li><strong>No Interior: </strong> '.$int.'</li>
+			<li><strong>Colonia: </strong> '.$colonia.'</li>
+			<li><strong>Municipio: </strong> '.$municipio.'</li>
+			
+		</ul>
+
+		<br/>
+		<br/>
+		
+
+		<hr style="border:2px solid #A6060E;"/>
+		</body>
+		</html>
+		';
+
+		//enviar correo
+		$envio = mail($destino, $asunto, $contenido, $headers);
+
+		if($envio){
+			header("Location:gracias.html");
+			//Enviando autorespuesta
+			$pwf_header = "info@drenajesyfugas.com\n"
+			."Reply-to: info@drenajesyfugas.com \n";
+			$pwf_asunto = "Drefsa Confirmación";
+			$pwf_dirigido_a = "$email";
+			$pwf_mensaje = "$nombre Gracias por dejarnos su mensaje desde nuestro sitio web \n"
+			."Su mensaje ha sido recibido satisfactoriamente \n"
+			."Nos pondremos en contacto lo antes posible a su e-mail: $email o su telefono $telefono \n"
+			."\n"
+			."\n"
+			."-----------------------------------------------------------------"
+			."Favor de NO responder este e-mail ya que es generado Automaticamente.\n"
+			."Atte: DREFSA Mtto. de Drenaje Industrial \n";
+			@mail($pwf_dirigido_a, $pwf_asunto, $pwf_mensaje, $pwf_header);
+		}else{
+			header("Location:../index.php?error=Inténtelo de nuevo en unos momentos");
+		}
+	}
+}
+
 	error_reporting(0);
 	$msjStatus = null;
 
@@ -243,5 +422,3 @@
 	}
 
 	echo $msjStatus;
-
-?>

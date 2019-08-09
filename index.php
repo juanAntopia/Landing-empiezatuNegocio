@@ -44,30 +44,30 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 padding-columna-header" style="padding-left: 0px; padding-right: 0px;">
 
                         <div class="logo-espacio">
-                            <a href="">
+                            <a href="mailto:greenmatik@greenmatik.mx">
                                 <img class="img-acomodo mr-3" src="images/icons/email.png" alt="Generic placeholder image">
                             </a>
-                            <a href="">
+                            <a href="tel:018001347336">
                                 <img class="img-acomodo mr-3" src="images/icons/tel.png" alt="Generic placeholder image">
                             </a>
-                            <a href="">
+                            <a href="https://wa.me/5219988411793?text=Contáctanos">
                                 <img class="img-acomodo mr-3" src="images/icons/wap.png" alt="Generic placeholder image">
                             </a>
                         </div>
 
                         <ul class="social-icons">
                             <li>
-                                <a href="#">
+                                <a href="mailto:greenmatik@greenmatik.mx">
                                     <img class="img-acomodo-responsive" src="images/icons/email.png" alt="Generic placeholder image">
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="tel:018001347336">
                                     <img class="img-acomodo-responsive" src="images/icons/tel.png" alt="Generic placeholder image">
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="https://wa.me/5219988411793?text=Contáctanos">
                                     <img class="img-acomodo-responsive" src="images/icons/wap.png" alt="Generic placeholder image">
                                 </a>
                             </li>
@@ -99,56 +99,22 @@
 
                     <h2 class="white">¡Recupera tu inversión a partir de 18 meses!</h2>
 
-                    <div class="row centrar">
-                        <a href="#"> <button class="btn-1" data-aos="fade-left" data-aos-duration="1800"> Conocer
-                                más</button></a>
-
-                    </div>
                 </div>
-                <!-- <div class="COL-XS-12 contacto col-sm-12 col-md-4 ml-auto oculto-1">
-                    <h3 class="white contact-texto">Déjanos tus datos y te llamaremos en breve.</h3>
-                    <form id="contact-form" method="post" role="form" action="mail/formulario-contacto.php">
-                        <div class="ajax-hidden">
-                            <div class="form-group">
-                                <label class="sr-only" for="c_name">Nombre</label>
-                                <input type="text" id="c_name" class="form-control" name="c_name" placeholder="Nombre">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="c_phone">Teléfono </label>
-                                <input type="tel" id="c_phone" class="form-control" name="c_phone"
-                                    placeholder="Teléfono">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="c_email">E-mail </label>
-                                <input type="email" id="c_email" class="form-control" name="c_email"
-                                    placeholder="E-mail">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" id="c_message" name="c_message" rows="7"
-                                    placeholder="Mensaje"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-row">
-
-
-                                    <div class="col-md-1 align-self-center">
-                                        <input type="checkbox" name="c_terms" id="c_terms">
-                                    </div>
-                                    <div class="col-md-11 align-self-center">
-                                        <label for="c_terms" style="color:white;">Acepto
-                                                Política de privacidad</label>
-                                    </div>
-                                    <div id="terms-status2" class="status-fields"></div>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn-enviar">
-                                Enviar
-                            </button>
-                        </div>
-                        <div class="ajax-response"></div>
-                    </form>
-                </div> -->
+            </div>
+            <div class="row centrar">
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                    <a href="#">
+                        <button class="btn-1" data-aos="fade-left" data-aos-duration="1800">
+                            Conocer más
+                        </button>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-5">
+                    <ul class="images-acomodo">
+                        <li><img src="images/icons/empresa_mexicana.png" alt=""></li>
+                        <li><img src="images/icons/empresa_comprometida.png" alt=""></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -250,25 +216,25 @@
                         <h3 class="contacto-subt">¿TE INTERESA ARMAR UN PROYECTO?<br>
                             CUÉNTANOS MÁS</h2>
 
-                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" style="padding: 30px 30px; background:white; margin:50px 0;" id="contact-form" method="post" role="form">
-                            
+                            <form action="mail/formulario-contacto.php" style="padding: 30px 30px; background:white; margin:50px 0;" id="contact-form" method="post" role="form">
+
                                 <div class="ajax-hidden">
                                     <p class="black">Nombre</p>
                                     <div class="form-group">
                                         <label class="sr-only" for="c_name">Nombre</label>
-                                        <input type="text" id="c_name" class="form-control" name="c_name" placeholder="Nombre">
+                                        <input type="text" pattern="[A-Za-z-áéíóú\s]+" onkeyup="this.className = 'campo';" id="c_name" class="form-control" name="c_name" placeholder="Nombre" required>
                                         <div id="nombre-status" class="status-fields"></div>
                                     </div>
                                     <p class="black">E-mail</p>
                                     <div class="form-group">
                                         <label class="sr-only" for="c_email">ejemplo@mail.com </label>
-                                        <input type="email" id="c_email" class="form-control" name="c_email" placeholder="ejemplo@mail.com ">
+                                        <input type="email" id="c_email" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" onkeyup="this.className = 'campo';" class="form-control" name="c_email" placeholder="ejemplo@mail.com " required>
                                         <div id="email-status" class="status-fields"></div>
                                     </div>
                                     <p class="black">Teléfono</p>
                                     <div class="form-group">
                                         <label class="sr-only" for="c_phone">1234567891 </label>
-                                        <input type="tel" id="c_phone" class="form-control" name="c_phone" placeholder="812-4567-891">
+                                        <input type="tel" id="c_phone" pattern="^[0-9]+" maxlength="15" minlength="8" onkeyup="this.className = 'campo';" class="form-control" name="c_phone" placeholder="812-4567-891" required>
                                         <div id="telefono-status" class="status-fields"></div>
                                     </div>
                                     <div class="row">
@@ -276,7 +242,7 @@
                                             <p class="black">Estado</p>
                                             <div class="form-group">
 
-                                                <input type="text" id="c_state" class="form-control" name="c_state" placeholder="Estado">
+                                                <input type="text" pattern="[A-Za-z-áéíóú\s]+" onkeyup="this.className = 'campo';" id="c_state" class="form-control" name="c_state" placeholder="Estado" required>
                                                 <div id="estado-status" class="status-fields"></div>
                                             </div>
                                         </div>
@@ -284,7 +250,7 @@
                                             <p class="black">Ciudad</p>
                                             <div class="form-group">
 
-                                                <input type="text" id="c_city" class="form-control" name="c_city" placeholder="Ciudad">
+                                                <input type="text" pattern="[A-Za-z-áéíóú\s]+" onkeyup="this.className = 'campo';" id="c_city" class="form-control" name="c_city" placeholder="Ciudad" required>
                                                 <div id="ciudad-status" class="status-fields"></div>
                                             </div>
                                         </div>
@@ -293,19 +259,19 @@
                                 <p class="black">Presupuesto aproximado</p>
                                 <div class="form-group">
 
-                                    <input type="number" id="c_budget" class="form-control" name="c_budget" placeholder="$1,000,00">
+                                    <input type="text" pattern="^[0-9]+" onkeyup="this.className = 'campo';" id="c_budget" class="form-control" name="c_budget" placeholder="$1,000,00" required>
                                     <div id="presupuesto-status" class="status-fields"></div>
                                 </div>
 
                                 <p class="black">¿Cuentas con terreno?</p>
                                 <div class="text-left">
                                     <div class="form-check form-check-inline ">
-                                        <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio1" value="si">
+                                        <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio1" value="si" required>
                                         <label class="form-check-label" for="inlineRadio1">Si</label>
 
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio2" value="no">
+                                        <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio2" value="no" required>
                                         <label class="form-check-label" for="inlineRadio2">No</label>
                                     </div>
                                 </div>
@@ -318,7 +284,7 @@
                                         <p class="black">m2</p>
                                         <div class="form-group">
 
-                                            <input type="number" id="c_camp1" class="form-control" name="c_camp1" placeholder=" 50">
+                                            <input type="number" id="c_camp1" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp1" placeholder=" 50" required>
                                             <div id="camp1-status" class="status-fields"></div>
 
                                         </div>
@@ -327,7 +293,7 @@
                                         <p class="black">Ancho</p>
                                         <div class="form-group">
 
-                                            <input type="number" id="c_camp2" class="form-control" name="c_camp2" placeholder="25">
+                                            <input type="number" id="c_camp2" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp2" placeholder="25" required>
                                             <div id="camp2-status" class="status-fields"></div>
 
                                         </div>
@@ -337,7 +303,7 @@
                                         <p class="black">Largo</p>
                                         <div class="form-group">
 
-                                            <input type="number" id="c_camp3" class="form-control" name="c_camp3" placeholder="25">
+                                            <input type="number" id="c_camp3" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp3" placeholder="25" required>
                                             <div id="camp3-status" class="status-fields"></div>
 
                                         </div>
@@ -349,11 +315,11 @@
                                 <p class="black">¿Estas interesado en un proyecto Llave en mano?</p>
                                 <div class="text-left">
                                     <div class="form-check form-check-inline ">
-                                        <input class="form-check-input" type="radio" name="radioValue2" id="inlineRadio1" value="si">
+                                        <input class="form-check-input" type="radio" name="radioValue2" id="inlineRadio1" value="si" required>
                                         <label class="form-check-label" for="inlineRadio1">Si</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="radioValue2" id="inlineRadio2" value="no">
+                                        <input class="form-check-input" type="radio" name="radioValue2" id="inlineRadio2" value="no" required>
                                         <label class="form-check-label" for="inlineRadio2">No</label>
                                     </div>
                                 </div>
@@ -363,12 +329,12 @@
                                 <br>
 
                                 <div class="form-group">
-                                    <textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Mensaje"></textarea>
+                                    <textarea class="form-control" onkeyup="this.className = 'campo';" id="c_message" name="c_message" rows="7" placeholder="Mensaje" required></textarea>
                                     <div id="mensaje-status" class="status-fields"></div>
 
                                 </div>
                                 <div class="form-group form-check text-left">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="c_terms">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="c_terms" required>
                                     <label class="form-check-label" for="exampleCheck1">
                                         Acepto los términos y
                                         condiciones de la<br>
@@ -383,8 +349,6 @@
                                 <button type="submit" class="btn-enviar" id="btn-ajax">
                                     Enviar
                                 </button>
-                                <div id="mensajeErr-Status" class="correct"></div>
-                                <input type="hidden" name="ajax">
 
                             </form>
                     </div>

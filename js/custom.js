@@ -4,7 +4,7 @@
 /**
  * Validación de formularios con AJAX
  */
-
+/*
 $(function(){
 	$('#btn-ajax').click(function () { 
 	   var url = 'mail/formulario-contacto.php';
@@ -33,4 +33,4 @@ $(function(){
 
 	   return false;
 	});
-});
+});*/
