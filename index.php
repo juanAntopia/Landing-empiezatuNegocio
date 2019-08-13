@@ -31,27 +31,28 @@
 
                 <div class="row">
 
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="logo-espacio">
                             <img src="images/icons/Logo.png" alt="logo" class="logo">
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 padding-columna-header">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 padding-columna-header">
                         <h5 class="header-subtitulo">
                             Cobertura a toda la República Mexicana
                         </h5>
+                        <img src="images/icons/Logo.png" alt="Logo" class="imagen-logo">
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 padding-columna-header" style="padding-left: 0px; padding-right: 0px;">
+                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 padding-columna-header" style="padding-left: 0px; padding-right: 0px;">
 
                         <div class="logo-espacio">
                             <a href="mailto:greenmatik@greenmatik.mx">
-                                <img class="img-acomodo mr-3" src="images/icons/email.png" alt="Generic placeholder image">
+                                <img class="img-acomodo " src="images/icons/email.png" alt="Generic placeholder image">
                             </a>
                             <a href="tel:018001347336">
-                                <img class="img-acomodo mr-3" src="images/icons/tel.png" alt="Generic placeholder image">
+                                <img class="img-acomodo " src="images/icons/tel.png" alt="Generic placeholder image">
                             </a>
                             <a href="https://wa.me/5219988411793?text=Contáctanos">
-                                <img class="img-acomodo mr-3" src="images/icons/wap.png" alt="Generic placeholder image">
+                                <img class="img-acomodo " src="images/icons/wap.png" alt="Generic placeholder image">
                             </a>
                         </div>
 
@@ -88,7 +89,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-8 ">
-                    <img src="images/icons/Logo.png" alt="Logo" class="imagen-logo">
+                    
                     <h1 class="">¿Buscas un negocio rentable y con alta liquidez? </h1>
 
                     <h2 class="white">Un autolavado te ofrece esa posibilidad.</h2>
@@ -218,6 +219,43 @@
 
                             <form action="mail/formulario-contacto.php" style="padding: 30px 30px; background:white; margin:50px 0;" id="contact-form" method="post" role="form">
 
+                                <?php
+                                    if(isset($_GET['error'])):
+                                        $error = $_GET['error'];
+
+                                        if($error == "faltan_valores"):
+                                            echo "<h5>Porfavor, Introduce bien los datos</h5>";  
+
+                                        elseif($error == "nombre"):
+                                            echo "<h5>Porfavor, Introduce un nombre válido</h5>";
+
+                                        elseif($error == "email"):
+                                            echo "<h5>Porfavor, Introduce un email válido</h5>";    
+
+                                        elseif($error == "telefono"):
+                                            echo "<h5>Porfavor, Introduce un teléfono válido</h5>"; 
+                                        
+                                        elseif($error == "estado"):
+                                            echo "<h5>Porfavor, Introduce un estado válido</h5>";
+                                        
+                                        elseif($error == "calle"):
+                                            echo "<h5>Porfavor, Introduce una calle válido</h5>";
+                                        
+                                        elseif($error == "presupuesto"):
+                                           echo "<h5>Porfavor, Introduce un presupuesto válido</h5>";
+
+                                        elseif($error == "RadioValue1"):
+                                            echo "<h5>Porfavor, selecciona una opción</h5>";
+
+                                        elseif($error == "RadioValue2"):
+                                            echo "<h5>Porfavor, selecciiona una opción</h5>";
+                                        
+                                        elseif($error == "mensaje"):
+                                            echo "<h5>Porfavor, Introduce un mensaje válido</h5>";
+
+                                        endif;
+                                    endif;
+                                ?>
                                 <div class="ajax-hidden">
                                     <p class="black">Nombre</p>
                                     <div class="form-group">
@@ -267,24 +305,24 @@
                                 <div class="text-left">
                                     <div class="form-check form-check-inline ">
                                         <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio1" value="si" required>
-                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                        <label class="form-check-label" for="inlineRadio">Si</label>
 
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="radioValue" id="inlineRadio2" value="no" required>
-                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                        <label class="form-check-label" for="inlineRadio">No</label>
                                     </div>
                                 </div>
                                 <div id="terreno-status" class="status-fields"></div>
 
                                 <br>
 
-                                <div class="row">
+                                <div class="row" id="form-measurements">
                                     <div class="col-xs-12 col-md-4">
                                         <p class="black">m2</p>
                                         <div class="form-group">
 
-                                            <input type="number" id="c_camp1" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp1" placeholder=" 50" required>
+                                            <input type="number" id="c_camp1" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp1" placeholder=" 50" disabled>
                                             <div id="camp1-status" class="status-fields"></div>
 
                                         </div>
@@ -293,7 +331,7 @@
                                         <p class="black">Ancho</p>
                                         <div class="form-group">
 
-                                            <input type="number" id="c_camp2" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp2" placeholder="25" required>
+                                            <input type="number" id="c_camp2" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp2" disabled placeholder="25">
                                             <div id="camp2-status" class="status-fields"></div>
 
                                         </div>
@@ -303,14 +341,12 @@
                                         <p class="black">Largo</p>
                                         <div class="form-group">
 
-                                            <input type="number" id="c_camp3" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp3" placeholder="25" required>
+                                            <input type="number" id="c_camp3" pattern="^[0-9]+" onkeyup="this.className = 'campo';" class="form-control" name="c_camp3" disabled placeholder="25">
                                             <div id="camp3-status" class="status-fields"></div>
 
                                         </div>
                                     </div>
                                 </div>
-
-
 
                                 <p class="black">¿Estas interesado en un proyecto Llave en mano?</p>
                                 <div class="text-left">
