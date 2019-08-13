@@ -14,6 +14,7 @@ if(isset($_POST)){
 		$camp3 = htmlspecialchars($_POST['c_camp3']);
 		$radioValue2 = htmlspecialchars($_POST['radioValue2']);
 		$message = htmlspecialchars($_POST['c_message']);
+		$terms = $_POST['c_terms'];
 
 	$error = "faltan_valores";
 
@@ -109,6 +110,12 @@ if(isset($_POST)){
 		} else {
 			$validate_message = false;
 			$error = "mensaje";
+		}
+		if(isset($terms) && $terms == "on"){
+			$validate_terms = true;
+		}else{
+			$validate_terms = false;
+			$error = "terminos y condiciones";
 		}
 	}else {
 		$error = "faltan_valores";

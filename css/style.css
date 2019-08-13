@@ -153,7 +153,7 @@ li {
 p.black {
     color: #333333;
     font-size: 14px;
-    text-align: -webkit-left;
+    text-align: left;
 }
 .subtitulo-servicios {
     text-align: left;
@@ -717,7 +717,6 @@ h3.footer {
         text-align: left;
     }
     footer h3.white{
-       
         padding-bottom: 25px;
         font-size: 1em;
         font-weight: bolder;
@@ -867,7 +866,6 @@ h3.footer {
         text-align: center;
     }
 
-   
     .buttonintro {
         display: block;
         text-align: center;

@@ -33,14 +33,14 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="logo-espacio">
-                            <img src="images/icons/Logo.png" alt="logo" class="logo">
+                            <img src="images/icons/logo.png" alt="logo" class="logo">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 padding-columna-header">
                         <h5 class="header-subtitulo">
                             Cobertura a toda la República Mexicana
                         </h5>
-                        <img src="images/icons/Logo.png" alt="Logo" class="imagen-logo">
+                        <img src="images/icons/logo.png" alt="Logo" class="imagen-logo">
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 padding-columna-header" style="padding-left: 0px; padding-right: 0px;">
 
@@ -104,9 +104,9 @@
             </div>
             <div class="row centrar">
                 <div class="col-xs-12 col-sm-12 col-md-7">
-                    <a href="#">
-                        <button class="btn-1" data-aos="fade-left" data-aos-duration="1800">
-                            Conocer más
+                    <a href="#Contacto">
+                        <button class="btn-1"  data-aos-duration="1800">
+                            Contáctanos
                         </button>
                     </a>
                 </div>
@@ -121,7 +121,7 @@
     </section>
 
 
-    <section id="servicios" class="titulo-servicios container" data-aos="fade-up">
+    <section id="servicios" class="titulo-servicios container">
         <h2 class="text-center">¿POR QUÉ UN AUTOLAVADO CON EQUIPO GREENMATIK ES UN GRAN NEGOCIO?</h2>
         <!--<hr style="border: 2px solid #001F38; width:20%; margin-bottom: 0px">-->
 
@@ -135,7 +135,7 @@
     </section>
 
     <!--Servicios sección-->
-    <section class="servicios" data-aos="fade-up" data-aos="fade-up" data-aos-duration="1800">
+    <section class="servicios"  >
 
         <div class="container">
 
@@ -155,7 +155,7 @@
                         </p>
                 </div>
 
-                <div class="col-xs-12 col-md-3 services-padding " data-aos="fade-up" data-aos-duration="1300">
+                <div class="col-xs-12 col-md-3 services-padding " >
                     <img src="images/icons/02.png" alt="TDemanda 
                     creciente" width="45" class="oculto imagen-servicios">
                     <h6 class="transporte-service">Demanda
@@ -176,7 +176,7 @@
                         </p>
                 </div>
 
-                <div class="col-xs-12 col-md-3 services-padding" data-aos="fade-up" data-aos-duration="1300">
+                <div class="col-xs-12 col-md-3 services-padding">
                     <img src="images/icons/04.png" alt=" Responsabilidad social 
                     y ecologica" width="45" class="oculto imagen-servicios">
                     <h6 class="transporte-service">
@@ -209,7 +209,7 @@
         </div>
     </section>
 
-    <section class="text-center" id="Contacto" style="background: #fafafa">
+    <section id="Contacto" style="background: #fafafa">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -252,6 +252,9 @@
                                         
                                         elseif($error == "mensaje"):
                                             echo "<h5>Porfavor, Introduce un mensaje válido</h5>";
+                                            
+                                        elseif ($error == "terminos y condiciones") :
+                                            echo "<h5>Debes aceptar los términos y condiciones</h5>";
 
                                         endif;
                                     endif;
